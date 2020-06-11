@@ -349,7 +349,7 @@ void fileheader(const char *pbuff)
     pbuff += sizeof(uint64_t);
     cout << "  Flags:                                0x0" <<endl;
     pbuff += sizeof(Elf32_Word);
-	cout << "  Size of this header:                  ";
+    cout << "  Size of this header:                  ";
     cout << std::dec << *(Elf32_Half*)pbuff << "(bytes into file)" <<endl;
     pbuff += sizeof(Elf32_Half);
     cout << "  Size of program headers:              ";
@@ -599,8 +599,6 @@ void outputsyminfo(const Elf64_Sym *psym, const char *pbuffstr, int ncount)
     cout << setw(9) << std::setfill(' ') << "Vis:";
     cout << setw(5) << std::setfill(' ') << "Ndx:";
     cout << "Name:" <<endl;
-    //printf("%s  %s    %s   %s      %s  %s\r\n",
-    //       "Size", "Type", "Bind", "Vis", "Ndx", "Name");
     for(int i = 0;i<ncount;++i)
     {
         cout << "    ";
@@ -659,7 +657,6 @@ void outputsyminfo(const Elf64_Sym *psym, const char *pbuffstr, int ncount)
                 cout << " ";
                 cout << psym[i].st_name + pbuffstr <<endl;
                 break;
-                //printf("%s  %s\r\n", "UND", psym[i].st_name + pbuffstr);break;
             case SHN_ABS:
                 cout << setw(5) << setfill(' ') << "ABS";
                 cout << " ";
@@ -741,7 +738,6 @@ void programheader(const char *pbuff)
     }
     cout << "Entry point 0x";
     cout << std::hex << (unsigned int)pfilehead->e_entry <<endl;
-    //printf("入口点位置 0X%0lX\r\n", pfilehead->e_entry);
     cout << "There are ";
     cout << std::dec << pfilehead->e_phnum;
     cout << " program headers, starting at offset ";
